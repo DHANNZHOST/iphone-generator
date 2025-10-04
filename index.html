@@ -712,6 +712,7 @@
             transition: all 0.3s ease;
             border: 2px solid var(--card-border);
             font-size: 15px;
+            cursor: pointer;
         }
         
         .action-btn.primary {
@@ -723,6 +724,90 @@
         .action-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        
+        /* Tutorial Section */
+        .tutorial-section {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+            box-shadow: 0 15px 40px var(--shadow-color);
+        }
+        
+        .tutorial-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+        
+        .tutorial-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .tutorial-step {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+        
+        .tutorial-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+        
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .tutorial-note {
+            text-align: center;
+            padding: 15px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .tutorial-note i {
+            color: var(--primary);
+            margin-right: 8px;
         }
         
         /* Contact Section */
@@ -931,6 +1016,14 @@
             .action-btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .tutorial-section {
+                padding: 25px 20px;
+            }
+            
+            .tutorial-steps {
+                grid-template-columns: 1fr;
             }
             
             .particle {
@@ -1146,6 +1239,37 @@
                         Bagikan
                     </button>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Tutorial Section -->
+        <div class="tutorial-section">
+            <h2 class="tutorial-title">📱 Tutorial Download Gambar</h2>
+            <div class="tutorial-steps">
+                <div class="tutorial-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Klik Tombol Download</div>
+                    <div class="step-description">Setelah gambar berhasil dibuat, klik tombol "Download" yang berwarna hijau</div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Tahan Gambar</div>
+                    <div class="step-description">Setelah gambar terbuka di tab baru, tekan dan tahan gambar tersebut</div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Pilih Download</div>
+                    <div class="step-description">Dari menu yang muncul, pilih opsi "Download Image" atau "Simpan Gambar"</div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Selesai!</div>
+                    <div class="step-description">Gambar akan tersimpan di folder download perangkat Anda</div>
+                </div>
+            </div>
+            <div class="tutorial-note">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Tips:</strong> Jika tombol download tidak berfungsi, Anda bisa langsung menekan gambar yang dihasilkan dan mengikuti langkah 2-3
             </div>
         </div>
         
@@ -1434,7 +1558,7 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.card, .contact-section').forEach(el => {
+        document.querySelectorAll('.card, .contact-section, .tutorial-section').forEach(el => {
             observer.observe(el);
         });
         
